@@ -3,28 +3,33 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.code.otter.nicephore.ingestion.sequenceur</groupId>
     <artifactId>sequenceur-webapp</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <properties>
         <java.version>1.8</java.version>
+        <spring.boot.version>1.3.3.RELEASE</spring.boot.version>
     </properties>
-    <parent>
-        <groupId>org.code.otter.nicephore.ingestion</groupId>
-        <artifactId>sequenceur</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
+            <version>${spring.boot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-integration</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>${spring.boot.version}</version>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -40,6 +45,8 @@
             <type>pom</type>
             <scope>import</scope>
         </dependency>
+
+
     </dependencies>
 
     <build>
@@ -47,6 +54,13 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <proc>none</proc>
+                </configuration>
             </plugin>
         </plugins>
     </build>

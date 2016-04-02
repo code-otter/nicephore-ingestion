@@ -1,0 +1,10 @@
+ingestion:
+  folder:
+    in: /opt/otter/nicephore/in
+    reject: /opt/otter/nicephore/reject
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false
